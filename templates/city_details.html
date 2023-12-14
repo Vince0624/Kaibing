@@ -1,7 +1,47 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>City Details</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    {% if city_info %}-->
+<!--        <h1>{{ city_info['city'] }}</h1>-->
+<!--        <p>Latitude: {{ city_info['lat'] }}</p>-->
+<!--        <p>Longitude: {{ city_info['lng'] }}</p>-->
+<!--        <p>Country: {{ city_info['country'] }}</p>-->
+<!--        <p>State: {{ city_info['state'] }}</p>-->
+<!--        <p>Population: {{ city_info['population'] }}</p>-->
+<!--    {% else %}-->
+<!--        <h1>City not found</h1>-->
+<!--    {% endif %}-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>City Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 30px;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #777;
+            margin-top: 10px;
+        }
+        .not-found {
+            color: #f00;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     {% if city_info %}
@@ -12,7 +52,7 @@
         <p>State: {{ city_info['state'] }}</p>
         <p>Population: {{ city_info['population'] }}</p>
     {% else %}
-        <h1>City not found</h1>
+        <h1 class="not-found">City not found</h1>
     {% endif %}
 </body>
 </html>
