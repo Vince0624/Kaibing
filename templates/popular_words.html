@@ -1,0 +1,89 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Words</title>-->
+<!--    <style>-->
+<!--        /* 样式 */-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>{{ name }}</h1>-->
+<!--    <h1>{{ id_card }}</h1>-->
+<!--    {% if picture_url %}-->
+<!--        <img src="{{ picture_url }}" alt="Your Picture">-->
+<!--    {% endif %}-->
+
+<!--    &lt;!&ndash; 添加合适的输入和按钮来操作API &ndash;&gt;-->
+<!--    <form action="/popular_words" method="GET">-->
+<!--        <label for="city">City Name:</label>-->
+<!--        <input type="text" id="city" name="city">-->
+<!--        <br>-->
+<!--        <label for="limit">Limit:</label>-->
+<!--        <input type="number" id="limit" name="limit">-->
+<!--        <br>-->
+<!--        <input type="submit" value="Get Popular Words">-->
+<!--    </form>-->
+
+<!--    <form action="/substitute_words" method="POST">-->
+<!--        <label for="word">Word:</label>-->
+<!--        <input type="text" id="word" name="word">-->
+<!--        <br>-->
+<!--        <label for="substitute">Substitute:</label>-->
+<!--        <input type="text" id="substitute" name="substitute">-->
+<!--        <br>-->
+<!--        <input type="submit" value="Substitute Word">-->
+<!--    </form>-->
+
+<!--    <script>-->
+<!--        // 添加适当的JavaScript来处理表单提交和响应显示-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Words</title>
+    <style>
+        /* 样式 */
+    </style>
+</head>
+<body>
+    <h1>{{ name }}</h1>
+    <h1>{{ id_card }}</h1>
+    {% if picture_url %}
+        <img src="{{ picture_url }}" alt="Your Picture">
+    {% endif %}
+
+    <!-- 添加合适的输入和按钮来操作API -->
+    <form action="/popular_words" method="GET">
+        <label for="city">City Name:</label>
+        <input type="text" id="city" name="city">
+        <br>
+        <label for="limit">Limit:</label>
+        <input type="number" id="limit" name="limit">
+        <br>
+        <input type="submit" value="Get Popular Words">
+    </form>
+
+    <form action="/substitute_words" method="POST">
+        <label for="word">Word:</label>
+        <input type="text" id="word" name="word">
+        <br>
+        <label for="substitute">Substitute:</label>
+        <input type="text" id="substitute" name="substitute">
+        <br>
+        <input type="submit" value="Substitute Word">
+    </form>
+
+    <h2>Popular Words:</h2>
+    <ul>
+        {% for word in words %}
+            <li>{{ word.term }}: {{ word.popularity }}</li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        // 添加适当的JavaScript来处理表单提交和响应显示
+    </script>
+</body>
+</html>
