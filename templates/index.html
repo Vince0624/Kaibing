@@ -1,0 +1,51 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Web Page</title>-->
+<!--    <style>-->
+<!--        h1 {-->
+<!--            font-size: 30px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>{{ name }}</h1>-->
+<!--    <h1>{{ id_card }}</h1>-->
+<!--    {% if picture_url %}-->
+<!--        <img src="{{ picture_url }}" alt="Your Picture">-->
+<!--    {% endif %}-->
+<!--<a href="{{ url_for('reviews') }}">Go to another page</a>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        img {
+            max-width: 300px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ name }}</h1>
+    <h1>{{ id_card }}</h1>
+    {% if picture_url %}
+        <img src="{{ picture_url }}" alt="Your Picture">
+    {% endif %}
+    <a href="{{ url_for('reviews') }}">Go to another page</a>
+</body>
+</html>

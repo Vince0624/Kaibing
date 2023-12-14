@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Reviews</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        img {
+            height: 50px;
+        }
+        .info-window {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+        a:hover + .info-window {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Score</th>
+            <th>City</th>
+            <th>Title</th>
+            <th>Review</th>
+        </tr>
+        {% for review in reviews %}
+        <tr>
+            <td><img src="static/score-{{ review['score'] }}.jpg" alt="Score {{ review['score'] }}"></td>
+            <td><a href="{{ url_for('city_details', city=review['city']) }}">{{ review['city'] }}</a></td>
+            <td>{{ review['title'] }}</td>
+            <td>{{ review['review'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+<!--    {% set cities = {} %}-->
+
+    {% for city in cities.values() %}
+    <div class="info-window" id="{{ city['city'] }}-info">
+        <h3>{{ city['city'] }}</h3>
+        <p>Latitude: {{ city['lat'] }}</p>
+        <p>Longitude: {{ city['lng'] }}</p>
+        <p>Country: {{ city['country'] }}</p>
+        <p>State: {{ city['state'] }}</p>
+        <p>Population: {{ city['population'] }}</p>
+    </div>
+    {% endfor %}
+
+    <script>
+        var infoWindows = document.querySelectorAll('.info-window');
+
+        window.addEventListener('load', function() {
+            infoWindows.forEach(function(element) {
+                element.style.display = 'none';
+            });
+        });
+
+        var links = document.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('mouseover', function() {
+                var cityInfo = document.querySelector('#' + link.textContent + '-info');
+                if (cityInfo) {
+                    cityInfo.style.display = 'block';
+                    link.addEventListener('mouseout', function() {
+                        cityInfo.style.display = 'none';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
