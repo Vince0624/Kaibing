@@ -5,8 +5,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     name = "Kaibing Zhang"  # 您的名字
-    id_card = "12345"  # 您的身份证上的最后5位数字
-    picture_url = "static/pic.png"  # 如果有照片，请将此变量设置为照片的URL
+    id_card = "75996"  # 您的身份证上的最后5位数字
+    picture_url = "static/pic.jpg"  # 如果有照片，请将此变量设置为照片的URL
     return render_template('index.html', name=name, id_card=id_card, picture_url=picture_url)
 
 @app.route('/reviews')
